@@ -1,6 +1,9 @@
 from instabot import Bot
 import random
 import csv
+import os 
+from dotenv import load_dotenv
+
 import config as cf
 import sys
 
@@ -26,11 +29,15 @@ def printMenu():
 ##############################################################################################
 
 ###################################### SETUP #################################################
-login = "login.csv"
+load_dotenv()
+
 bot = Bot(max_follows_per_day=173, max_unfollows_per_day=181, 
               max_followers_to_follow=2500, min_followers_to_follow=100,
               follow_delay=random.randint(300, 600), unfollow_delay=random.randint(300, 600))
-credentials = listLoad(login)[0]
+credentials = {
+    'username': os.getenv('USERNAMEIG'),
+    'password': os.getenv('PASSWORD')
+}
 ##############################################################################################
 
 ###################################### MENU PRINCIPAL #################################################

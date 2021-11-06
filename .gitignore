@@ -1,3 +1,4 @@
 /config/
 /Data/
 /__pycache__/
+.env
