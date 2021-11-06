@@ -29,7 +29,7 @@ def printMenu():
 ##############################################################################################
 
 ###################################### SETUP #################################################
-load_dotenv()
+load_dotenv() # Carga el .env con la info del bot
 
 bot = Bot(max_follows_per_day=173, max_unfollows_per_day=181, 
               max_followers_to_follow=2500, min_followers_to_follow=100,
