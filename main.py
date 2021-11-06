@@ -9,6 +9,7 @@ def listLoad(archivo):
     file = []
     dialect = csv.excel()
     dialect.delimiter=","
+    print(cf.data_dir)
     with open(cf.data_dir + archivo, encoding="utf-8") as csvfile:
         input_file = csv.DictReader(csvfile,dialect=dialect)
         for element in input_file:
@@ -19,6 +20,8 @@ def printMenu():
     print("\n"*5 +"Bienvenido")
     print("0- Salir")
     print("1- Login")
+    print("2- Mandar mensaje")
+    print("3- Subir historias con las fotos en la carpeta fotos")
     print("\n")
 ##############################################################################################
 
@@ -38,8 +41,11 @@ while True:
     if inputs == 1:
         bot.login(username = credentials["username"], password = credentials["password"])
     elif inputs == 2:
-        bot.upload_story_photo()
+        mensaje = input("Ponga su mensaje: ")
+        usuario = input("Escriba a quien le quiere mandar el mensaje: ")
+        bot.send_message(mensaje,[usuario])
     else:
+        bot.logout()
         sys.exit(0)
 
 
