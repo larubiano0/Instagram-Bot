@@ -9,8 +9,11 @@ import config as cf
 import sys
 
 ############################### DELETE .json in CONFIG ###############################
-cookie_del = glob.glob("config/complexclothingcol_uuid_and_cookie.json") # Relative path al .json
-os.remove(cookie_del[0])
+try:
+    cookie_del = glob.glob("config/complexclothingcol_uuid_and_cookie.json") # Relative path al .json
+    os.remove(cookie_del[0])
+except:
+    pass
 ######################################################################################
 
 
