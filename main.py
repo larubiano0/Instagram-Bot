@@ -37,6 +37,8 @@ while True:
     inputs = int(input('Seleccione una opción para continuar\n\n'))
     if inputs == 1:
         bot.login(username = credentials["username"], password = credentials["password"])
+    elif inputs == 2:
+        bot.upload_story_photo()
     else:
         sys.exit(0)
 
