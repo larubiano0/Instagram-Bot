@@ -2,6 +2,7 @@ from instabot import Bot
 import random
 import csv
 import config as cf
+import sys
 
 ###################################### HELPER FUNCTIONS ######################################
 def listLoad(archivo):
@@ -12,7 +13,13 @@ def listLoad(archivo):
         input_file = csv.DictReader(csvfile,dialect=dialect)
         for element in input_file:
             file.append(element)
-    return file    
+    return file
+
+def printMenu():
+    print("\n"*5 +"Bienvenido")
+    print("0- Salir")
+    print("1- Login")
+    print("\n")
 ##############################################################################################
 
 ###################################### SETUP #################################################
@@ -23,5 +30,16 @@ bot = Bot(max_follows_per_day=173, max_unfollows_per_day=181,
 credentials = listLoad(login)[0]
 ##############################################################################################
 
-bot.login(username = credentials["username"], password = credentials["password"])
+###################################### MENU PRINCIPAL #################################################
 
+while True:
+    printMenu()
+    inputs = int(input('Seleccione una opción para continuar\n\n'))
+    if inputs == 1:
+        bot.login(username = credentials["username"], password = credentials["password"])
+    else:
+        sys.exit(0)
+
+
+
+#######################################################################################################
