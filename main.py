@@ -8,11 +8,10 @@ from dotenv import load_dotenv
 import config as cf
 import sys
 
-##################### DELETE .json in CONFIG #####################
+############################### DELETE .json in CONFIG ###############################
 cookie_del = glob.glob("config/complexclothingcol_uuid_and_cookie.json") # Relative path al .json
 os.remove(cookie_del[0])
- 
-
+######################################################################################
 
 
 ###################################### HELPER FUNCTIONS ######################################
